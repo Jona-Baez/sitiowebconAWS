@@ -1,96 +1,36 @@
 PASO 1
-*-*-* Crear DynamoDB *-*-*
-Nombre: users
-Partition key: id
-
-PASO 2
-*-*-* Crear policy para Lambdas *-*-*
-Nombre: access-to-dynamodb-table-users
-Permisos:  
-"dynamodb:PutItem",
-"dynamodb:DeleteItem",
-"dynamodb:Scan"
-
-PASO 3
-*-*-* Crear Lambdas *-*-*
-Node.js 18.x
-Nombres:
-- lambda_create_user
-- lambda_get_user
-- lambda_delete_user
-
-PASO 4
-*-*-* Agregar policy a Lambda*-*-*
-Agregar "policy-access-to-dynamoDB" a la 
-Lambda
-
-PASO 5
-*-*-* Crear API*-*-*
-Tipo: HTTP
-Nombre: users
- 
-PASO 6
-*-*-* Crear rutas de API *-*-*
-POST /create_user
-DELETE /delete_user
-GET /get_user
-
-PASO 7
-*-* Crear integraciones con API Gateway *-*
-Tipo de integración: funcion Lambda
-
-PASO 8
-*-* Conectar la integraciónes con las rutas *-*
-Para todas las rutas se integra la
-Lambda corespondiente
-
-PASO 9
-*-*-* Agregar endpoint del API al codigo de S3 *-*-*
-create_user.js
-get_user.js
-delete_user.js x2
-
-PASO 10
-*-*-* Agregar CORS en API*-*-*
-Access-Control-Allow-Origin : *
-Access-Control-Allow-Headers : *
-Access-Control-Expose-Headers : *
-Access-Control-Allow-Methods: GET, POST, DELETE
-
-PASO 11
-*-*-* Crear bucket y cargar el codigo *-*-*
-Nombre: appwebformulario
+*-*-* Crear bucket en S3 *-*-*
+Nombre unico: De prefencia usa el nombre de tu sitio
 Configuraciones por defecto
 Cargar los archivos
+Visitar el endpoint el bucket S3
 
-PASO 12
-*-*-* Editar bucket *-*-*
-Static website hosting: Enable
-Index document: index.html
-Obtener el endpoint del bucket
-Visitar el endpoint
-Public access: Enable
-Visitar el endpoint y actualizar
-Agregar la bucket policy temporal
-Visitar el endpoint y actualizar
-Probar el formulario
-
-PASO 13
+PASO 2
 *-*-* Crear distribución de CloudFront *-*-*
-Origin domain: endpoint del bucket
+Origin domain: elegimos el endpoint del bucket S3
 Origin access control settings: Enable
 Create new OAC
+Viewer protocol pólicy: Redirect HTTP to HTTPS
 Do not enable security protections
 Default root object: index.html
-Agregar el bucet policy definitivo
+Copiar la bucket policy que nos brindó CF
 
-PASO 14
-*-*-* Editar buket nuevamente *-*-*
-Copiar la bucket policy de CloudFront
-Public access: Disable
-Cambiar la bucket policy
+PASO 3
+*-*-* Editar la bucket policy *-*-*
+Public access: Se mantiene "Disabled"
+Pegar la bucket policy
 Obtener el endpoint de CloudFront
-Probar el formulario
+Visitar el sitio web por el endpoint de CF
+
+PASO 4
+*-*-*-* Cambiar el index.html *-*-*-*
+
+PASO 5
+*-*-*-* Actualizar la distribución de CF *-*-*-*
+
+PASO 6
+*-*-*-* Crear la Lambda para atualizar automaticamente CF*-*-*-*
+
 
 Endpoint S3:
 Agrega aqui el endpoint final de tu S3
