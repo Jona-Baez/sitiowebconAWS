@@ -1,0 +1,11 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "VisualEditor0",
+			"Effect": "Allow",
+			"Action": "cloudfront:CreateInvalidation",
+			"Resource": "arn:aws:cloudfront::578234568011:distribution/EIGHTZK52K3Z2"
+		}
+	]
+}

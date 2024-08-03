@@ -2,8 +2,7 @@ PASO 1
 *-*-* Crear bucket en S3 *-*-*
 Nombre unico: De prefencia usa el nombre de tu sitio
 Configuraciones por defecto
-Cargar los archivos
-Visitar el endpoint el bucket S3
+Cargar el index.html
 
 PASO 2
 *-*-* Crear distribución de CloudFront *-*-*
@@ -16,23 +15,30 @@ Default root object: index.html
 Copiar la bucket policy que nos brindó CF
 
 PASO 3
-*-*-* Editar la bucket policy *-*-*
-Public access: Se mantiene "Disabled"
-Pegar la bucket policy
-Obtener el endpoint de CloudFront
+*-*-* Editar bucket policy *-*-*
+Pegar la policy de F en el bucket
 Visitar el sitio web por el endpoint de CF
+Agregar a la carpeta "imagenes", el archivo imagen_1
 
 PASO 4
-*-*-*-* Cambiar el index.html *-*-*-*
+*-*-*-* Crear invalidation en CloudFront *-*-*-*
+-- El propósito de las invalidations es CloudFront a volver
+   a obtener el contenido de un objeto en CloudFront cada vez
+   que un archivo se carga o actualiza en un bucket de S3 --
+Crear la carpeta "imagenes"
+Agregar la imagen_1
+Object paths: /imagenes/* o /*
+Visitar el endpoint de CF nuevamente
 
 PASO 5
-*-*-*-* Actualizar la distribución de CF *-*-*-*
+*-*-*-* Crear Lambda para automatizar las invalidations *-*-*-*
+Function name: lambda-invalidation
+Runtime: Python 3.12
+Agregar trigger con el S3
 
 PASO 6
-*-*-*-* Crear la Lambda para atualizar automaticamente CF*-*-*-*
+*-*-*-* Agregar policy de IAM a la Lambda *-*-*-*
+Policy name: access-to-cloudfront
+Adjuntar la policy al role de la Lambda
+Agregar a la carpeta "imagenes", el archivo imagen_2.jpg
 
-
-Endpoint S3:
-Agrega aqui el endpoint final de tu S3
-Endpoint CloudFront:
-Agrega aquiel endpoit de la distribución de ClodFront
