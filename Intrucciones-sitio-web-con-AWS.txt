@@ -13,32 +13,29 @@ Viewer protocol pólicy: Redirect HTTP to HTTPS
 Do not enable security protections
 Default root object: index.html
 Copiar la bucket policy que nos brindó CF
+Editar la bucket policy
+Visitar el sitio web por el endpoint de CF
 
 PASO 3
-*-*-* Editar bucket policy *-*-*
-Pegar la policy de F en el bucket
-Visitar el sitio web por el endpoint de CF
-Agregar a la carpeta "imagenes", el archivo imagen_1
+*-*-*-* Crear invalidation en CloudFront *-*-*-*
+-- El propósito de lainvalidation es forzar a CloudFront a
+   volver a obtener el contenido cada vez que un archivo se
+   carga o actualiza en un bucket de S3. --
+Crear en el bucket la carpeta "imagenes" y agregar la imagen_1.jpg
+Object paths: /imagenes/* o /*
+Visitar endpointdeCF/imagenes/imagen_1.jpg
 
 PASO 4
-*-*-*-* Crear invalidation en CloudFront *-*-*-*
--- El propósito de las invalidations es CloudFront a volver
-   a obtener el contenido de un objeto en CloudFront cada vez
-   que un archivo se carga o actualiza en un bucket de S3 --
-Crear la carpeta "imagenes"
-Agregar la imagen_1
-Object paths: /imagenes/* o /*
-Visitar el endpoint de CF nuevamente
-
-PASO 5
 *-*-*-* Crear Lambda para automatizar las invalidations *-*-*-*
 Function name: lambda-invalidation
 Runtime: Python 3.12
 Agregar trigger con el S3
 
-PASO 6
-*-*-*-* Agregar policy de IAM a la Lambda *-*-*-*
+PASO 5
+*-*-*-* Crear la policy de IAM para la Lambda *-*-*-*
 Policy name: access-to-cloudfront
 Adjuntar la policy al role de la Lambda
 Agregar a la carpeta "imagenes", el archivo imagen_2.jpg
-
+Ver las invalidations de CF
+Visitar endpointdeCF/imagenes/imagen_2.jpg
+CF se actualiza utomaticamente con la imaggen subida
