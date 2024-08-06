@@ -59,3 +59,14 @@ Custom SSL certificate > Elgir nuestro certificado
 
 PASO 9
 *-*-*-* Crear registro en Route53 *-*-*-*
+Create record
+Record type: A
+Alias: Enable
+Route traffic to: Alias to cloudFront distribución
+Choose distribución: elegimos nuestra distribución
+Routing policy: Simple routing
+Confirmar el status del registro
+
+PASO 10
+*-*-*-* Acceder a nuestro sitio web por el dominio *-*-*-*
+Visita el dominio y confirma el certificado SSL 
