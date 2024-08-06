@@ -38,4 +38,4 @@ Adjuntar la policy al role de la Lambda
 Agregar a la carpeta "imagenes", el archivo imagen_2.jpg
 Ver las invalidations de CF
 Visitar endpointdeCF/imagenes/imagen_2.jpg
-CF se actualiza utomaticamente con la imaggen subida
+CF se actualiza automaticamente con la imaggen subida
