@@ -5,7 +5,7 @@ Configuraciones por defecto
 Cargar el index.html
 
 PASO 2
-*-*-* Crear distribución de CloudFront *-*-*
+*-*-* Crear distribución en el CDN de AWS (CloudFront) *-*-*
 Origin domain: elegimos el endpoint del bucket S3
 Origin access control settings: Enable
 Create new OAC
@@ -39,3 +39,23 @@ Agregar a la carpeta "imagenes", el archivo imagen_2.jpg
 Ver las invalidations de CF
 Visitar endpointdeCF/imagenes/imagen_2.jpg
 CF se actualiza automaticamente con la imaggen subida
+
+PASO 6
+*-*-*-* Registro de dominio en el DNS de AWS (Route53) *-*-*-*
+Register domain
+Revisar confirmación de la compra
+Visitar Hostes Zones
+
+PASO 7
+*-*-*-* Crear certificado SSL (Certicate Manager) *-*-*-*
+Solicitar un certificado publico a nombre de nuestor dominio
+Confirmar el estatus del certificado
+
+PASO 8
+*-*-*-* Configurar dominio y certificado en CloudFront *-*-*-*
+Elegir la distribución para nuesro sitio web > Editar
+Alternate domain name (CNAME) > Add item > elegir nuestro dominio
+Custom SSL certificate > Elgir nuestro certificado
+
+PASO 9
+*-*-*-* Crear registro en Route53 *-*-*-*
