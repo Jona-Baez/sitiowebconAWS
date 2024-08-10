@@ -1,5 +1,6 @@
 PASO 1
 *-*-* Crear bucket en S3 *-*-*
+Region: Norte de Virginia
 Nombre unico: De prefencia usa el nombre de tu sitio
 Configuraciones por defecto
 Cargar el index.html
