@@ -56,7 +56,7 @@ PASO 8
 *-*-*-* Configurar dominio y certificado en CloudFront *-*-*-*
 Elegir la distribución para nuesro sitio web > Editar
 Alternate domain name (CNAME) > Add item > elegir nuestro dominio
-Custom SSL certificate > Elgir nuestro certificado
+Custom SSL certificate > Elegir nuestro certificado
 
 PASO 9
 *-*-*-* Crear registro en Route53 *-*-*-*
