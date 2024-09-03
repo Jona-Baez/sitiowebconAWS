@@ -8,7 +8,7 @@ def lambda_handler(event, context):
         path = "/" + items["s3"]["object"]["key"]
     print(path)
     client = boto3.client('cloudfront')
-    invalidation = client.create_invalidation(DistributionId='tudistribucion',
+    invalidation = client.create_invalidation(DistributionId='EG0ZD1O7ZS3PU',
         InvalidationBatch={
             'Paths': {
                 'Quantity': 1,
