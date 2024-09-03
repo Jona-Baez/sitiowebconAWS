@@ -5,7 +5,7 @@
 			"Sid": "VisualEditor0",
 			"Effect": "Allow",
 			"Action": "cloudfront:CreateInvalidation",
-			"Resource": "arn:aws:cloudfront::IDdetucuenta:distribution/EG0ZD1O7ZS3PU"
+			"Resource": "arn:aws:cloudfront::IDdetucuenta:distribution/tudistribucion"
 		}
 	]
 }
